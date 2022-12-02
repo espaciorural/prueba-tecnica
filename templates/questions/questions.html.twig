@@ -1,0 +1,38 @@
+{{ form(form) }}
+{{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row">
+        <div class="col">
+           
+        </div>
+        <div class="col" id="some-custom-id">
+           
+        </div>
+    </div>
+{{ form_end(form) }}
+
+<table>
+{% for data in questions %} 
+<tr>
+<td>    
+{{ data.title }} 
+</td>
+</tr>
+<tr>
+<td>    
+{{ data.creation_date|date('d/m/Y') }} 
+</td>
+</tr>
+<tr>
+<td>    
+    {% for tag in data.tags %}
+        <li>{{ tag|e }}</li>
+    {% endfor %}
+</td>
+</tr>
+{% endfor %}
+</table>
+
